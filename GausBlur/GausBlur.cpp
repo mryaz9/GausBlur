@@ -4,6 +4,9 @@ void GausThread::run()
 {
     double radius = 3 * sigma; // пиксели на расстоянии более 3σ оказывают на него достаточно малое влияние
 
+    double first = 1 / (2 * M_PI * sigma * sigma);
+    double denominator = (2 * sigma * sigma);
+
     QImage resultImage = QImage(image);
 
     int width = resultImage.width();
@@ -21,7 +24,7 @@ void GausThread::run()
                     int new_y = max(0, min(height - 1, y + j));
                     int new_x = max(0, min(width - 1, x + i));
 
-                    double weight = 1 / (2 * M_PI * sigma * sigma) * exp(-(i * i + j * j) / (2 * sigma * sigma)); //  произведение двух функций Гаусса, по одной для каждого измерения
+                    double weight = first * exp(-(i * i + j * j) / denominator); //  произведение двух функций Гаусса, по одной для каждого измерения
                     QRgb pixel = image.pixel(new_x, new_y);
 
                     red += qRed(pixel) * weight;

@@ -35,6 +35,7 @@ public slots:
 private:
     Ui::MainWindow ui;
     bool blur_image = false;
+    double sigma;
 
     QImage resultImage;
     QString image_path;

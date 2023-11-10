@@ -101,7 +101,7 @@ void MainWindow::showAbout()
 
 int MainWindow::start()
 {
-    if (blur_image) {
+    if (blur_image && sigma == ui.radius->value()) {
         QMessageBox infoWindow;
         infoWindow.setText("Image already blur");
         infoWindow.exec();
@@ -116,7 +116,7 @@ int MainWindow::start()
         return 1;
     }
 
-    double sigma = ui.radius->value();
+    sigma = ui.radius->value();
 
     GausWindow* Window = new GausWindow(image, sigma, this);
     Window->start();
