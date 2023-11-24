@@ -17,19 +17,19 @@ using namespace std;
 class GausThread : public QThread {
     Q_OBJECT
 
+
 public:
     GausThread(QImage& image, double sigma) : image(image), sigma(sigma) {}
-
-signals:
-    void update(int value);
-    void finish(QImage resultImage);
-
-public:
     void run() override;
 
 private:
     QImage& image;
     double sigma;
+
+
+signals:
+    void update(int value);
+    void finish(QImage resultImage);
 };
 
 

@@ -95,7 +95,7 @@ void MainWindow::exit()
 void MainWindow::showAbout()
 {
     QMessageBox infoWindow;
-    infoWindow.setText("Gaussian blur\nThe program uses Gaussian blur for image processing\nVersion: 0.5\nDmitriev Nikolay");
+    infoWindow.setText("Gaussian blur\nThe program uses Gaussian blur for image processing\nVersion: 1.0\nDmitriev Nikolay");
     infoWindow.exec();
 }
 
